@@ -1,7 +1,7 @@
 <h1>Tag: <%= @tag.name %></h1>
 <% @tag.pictures.each do |picture| %>
   <ul>
-  <li><h2><%= picture.title %></li></h2>
+  <li><h2><%= link_to picture.title, picture  %></li></h2>
   <p><img src='<%=picture.image_url%>'/></p>
 </ul>
 <% end %>
