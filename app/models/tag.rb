@@ -9,7 +9,6 @@ class Tag < ApplicationRecord
     end
     x = new_hash.sort_by {|k,v| v}
     x_reversed = x.reverse
-
     return [x_reversed[0], x_reversed[1], x_reversed[2]]
   end
 
@@ -35,4 +34,12 @@ class Tag < ApplicationRecord
 
     return pictures_with_trending_tag
   end
+    #Tag from last 10 pictures
+    #with most comments
+    ordered_pictures = PictureTag.order("created_at DESC").all
+
+  end
+
+
+
 end
