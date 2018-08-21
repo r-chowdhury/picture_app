@@ -20,7 +20,7 @@ sean = User.create(username: "sean_huang", email: "sean.huangy@flatironschool.co
 
 duck_water = Picture.create(image_url: "https://s26552.pcdn.co/wp-content/uploads/2018/03/dc_neighborhood_news-13.jpg", title: "Duck On Water", user: ryhan)
 panda_rock = Picture.create(image_url: "https://wallpaperbrowse.com/media/images/wp-image-58683558-random-picture.jpg", title: "Panda Rocking", user: ryhan)
-mutated_pepe = Picture.create(image_url: "https://s26552.pcdn.co/wp-content/uploads/2018/03/dc_neighborhood_news-13.jpg", title: "Mutated Pepe", user: becci)
+mutated_pepe = Picture.create(image_url: "https://pbs.twimg.com/profile_images/653700295395016708/WjGTnKGQ_400x400.png", title: "Mutated Pepe", user: becci)
 hanging_panda = Picture.create(image_url: "https://i.pinimg.com/originals/0d/1a/2e/0d1a2e8c94f7d902b16340a35d51fd6f.jpg", title: "Hanging Panda", user: daniel)
 pitbull = Picture.create(image_url: "http://www.dumpaday.com/wp-content/uploads/2018/03/photos-2-20.jpg", title: "Pitbull", user: kenny)
 cow_tire = Picture.create(image_url: "http://www.dumpaday.com/wp-content/uploads/2018/06/random-pictures-10.jpg", title: "Cow In Tire", user: sean)
