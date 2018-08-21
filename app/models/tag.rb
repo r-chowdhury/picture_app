@@ -31,8 +31,9 @@ class Tag < ApplicationRecord
     pictures_with_most_comments = pictures_with_most_comments.max_by {|k,v| v}
 
     pictures_with_trending_tag = PictureTag.all.select {|picture| picture.tag == most_common_tag_object}
-
     return pictures_with_trending_tag
+    #still need to limit by 10 (pictures with most comments) and then
+    #sort by timestamp
   end
 
 end

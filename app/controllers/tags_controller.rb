@@ -1,23 +1,28 @@
 class TagsController < ApplicationController
   before_action :selected_tag, only: [:show, :edit, :update, :destroy]
   def index
-    @tag = Tag.all
+    @tags = Tag.all
   end
 
   def show
+    @tag = selected_tag
   end
 
   def new
-  
+
   end
 
   def edit
   end
+
+
   private
-  def selected_tag
-    @tag = Tag.find(params[:id])
-  end
   def tag_params
     params.require(:tag).permit(:name)
   end
+
+  def selected_tag
+    @tag = Tag.find(params[:id])
+  end
+
 end
