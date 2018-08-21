@@ -13,10 +13,6 @@ class Tag < ApplicationRecord
   end
 
   def self.trending
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 7a3d078ca5afc1e86e7f667402e0e2f81406edbd
     #iterate through the pictures.
     #isolate each of them depending on the tag they have.
     #return 10 pictures with that tag that have the most comments.
