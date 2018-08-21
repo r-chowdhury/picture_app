@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :selected_user
   def index
   end
 

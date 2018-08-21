@@ -13,12 +13,25 @@ class Tag < ApplicationRecord
   end
 
   def self.trending
-    #Tag from last 10 pictures
-    #with most comments
-    ordered_pictures = PictureTag.order("created_at DESC").all
+    #iterate through the pictures.
+    #isolate each of them depending on the tag they have.
+    #return 10 pictures with that tag that have the most comments.
+    new_hash = Hash.new(0)
+    PictureTag.all.each do |picture_tag|
+      new_hash[picture_tag.tag] += 1 #this gives a hash with a count
+    end
+    x = new_hash.sort_by {|k,v| v} #x = most common tag
+    most_common_tag_object_array = x.last
+    most_common_tag_object = most_common_tag_object_array.first
 
+    pictures_with_most_comments = Hash.new(0)
+    PictureTag.all.each do |picture_tag|
+      new_hash[picture_tag.picture] = picture_tag.picture.comments.length #this gives a hash with a count
+    end
+    pictures_with_most_comments = pictures_with_most_comments.max_by {|k,v| v}
+
+    pictures_with_trending_tag = PictureTag.all.select {|picture| picture.tag == most_common_tag_object}
+
+    return pictures_with_trending_tag
   end
-
-
-
 end

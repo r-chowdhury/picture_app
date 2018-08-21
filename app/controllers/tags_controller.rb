@@ -8,7 +8,7 @@ class TagsController < ApplicationController
   end
 
   def new
-  
+
   end
 
   def edit
