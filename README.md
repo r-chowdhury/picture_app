@@ -55,4 +55,15 @@ Things you may want to cover:
  - To the left of any picture by any user, even their own photo.
  - A comment belongs_to and belongs_to a given user.
 
- 
+ pictures/index:
+ should display all pictures from users in chronological order.
+
+ pictures/show:
+ Will display a selected picture with all tags for that picture as links and all comments.
+
+ tag/index:
+ display all the tags in the database as links to the tag show page.
+
+ tag/show
+
+should display all the pictures associated with that tag.

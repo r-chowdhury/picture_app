@@ -15,11 +15,13 @@ class PicturesController < ApplicationController
 
   def edit
   end
+
   private
-  def selected_picture
-    @picture = Picture.find(params[:id])
-  end
   def picture_params
     params.require(:picture).permit(:image_url, :title, :user_id)
+  end
+  
+  def selected_picture
+    @picture = Picture.find(params[:id])
   end
 end
