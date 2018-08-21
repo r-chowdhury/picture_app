@@ -1,11 +1,14 @@
 class TagsController < ApplicationController
+  before_action :selected_tag, only: [:show, :edit, :update, :destroy]
   def index
+    @tag = Tag.all
   end
 
   def show
   end
 
   def new
+  
   end
 
   def edit

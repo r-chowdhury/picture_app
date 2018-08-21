@@ -1,4 +1,5 @@
 class PicturesController < ApplicationController
+  before_action :selected_picture, only: [:show, :edit, :update, :destroy]
   def index
   end
 
@@ -6,6 +7,9 @@ class PicturesController < ApplicationController
   end
 
   def new
+  end
+  def create
+    
   end
 
   def edit
