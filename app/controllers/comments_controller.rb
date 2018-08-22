@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
   end
 
   def create
+    Comment.create(text: 'whatever', user_id: session[:user_id])
   end
 
   def edit
@@ -27,7 +28,7 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:content, :picture_id, :user_id)
   end
-  
+
   def selected_comment
     @comment = Comment.find(params[:id])
   end
