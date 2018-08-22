@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users, only: [:index, :new, :create]
+  resources :users, only: [:index, :new, :create, :show]
   post 'sessions', to: 'sessions#create'
   delete 'sessions', to: 'sessions#destroy'
   resources :pictures

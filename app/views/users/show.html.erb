@@ -1,2 +1,9 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1><%= @user.username %></h1>
+<% if @user.id != session[:user_id] %>
+  <h1><%= @logged_in_user.username.upcase %>, YOU ARE NOT ALLOWED TO VIEW <%= @user.username.upcase %>'S PAGE</h1>
+<% else %>
+  <% @user.pictures.each do |picture| %>
+    <%= link_to picture.title, picture %>
+    <p><img src='<%=picture.image_url%>'></P>
+  <% end %>
+<% end %>

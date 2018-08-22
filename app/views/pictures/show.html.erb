@@ -11,7 +11,7 @@
 <br>
 <% @picture.comments.each do |comment| %>
 <ul>
-  <li><%= comment.user.username%></li>
+  <li><% comment.user.username%></li>
 <ul>
   <li>Comment: <%=comment.content%></li>
 </ul>

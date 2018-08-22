@@ -5,6 +5,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
+    @logged_in_user = User.find(session[:user_id])
   end
 
   def new
