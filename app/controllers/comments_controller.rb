@@ -11,7 +11,11 @@ class CommentsController < ApplicationController
   end
 
   def create
-    Comment.create(text: 'whatever', user_id: session[:user_id])
+    picture_id = session[:picture_id]
+    comment_params = params[:comment]
+    Comment.create(content: comment_params[:content], picture_id: picture_id, user_id: session[:user_id])
+    session[:picture_id] = nil
+    redirect_to Picture.find(picture_id)
   end
 
   def edit

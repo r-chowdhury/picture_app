@@ -1,13 +1,14 @@
 class ApplicationController < ActionController::Base
 
-  private
-  def define_logged_in_user
-    if(session[:logged_in_user_id] != nil)
-      @logged_in_user_id = User.find(session[:logged_in_user_id])
-    else
-      @logged_in_user = User.new
-      @logged_in_user.name = 'Guest'
+  def redirect_if_not_logged_in
+    if !session[:user_id]
+      redirect_to login_path
     end
   end
+
+  def current_user
+    User.find(session[:user_id])
+  end
+
 
 end
