@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
+  before_action :define_user, :define_users
   before_action :redirect_if_not_logged_in, only: [:index]
   def index
     @user = current_user
-    @users =User.all
+
   end
 
   def show
-    @user = User.find(params[:id])
+
     @logged_in_user = User.find(session[:user_id])
   end
 
@@ -32,6 +33,18 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation)
+  end
+  private
+  def define_users
+    @users = User.all
+  end
+
+  def define_user
+    unless(params[:id] == nil)
+      @user = User.find(params[:id])
+    else
+      @user = User.new
+    end
   end
 
 end

@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :selected_comment, only: [:show, :edit, :update, :destroy]
   def index
-    @comment = Comment.all
+    @comments = Comment.all
   end
 
   def show
@@ -19,9 +19,16 @@ class CommentsController < ApplicationController
   end
 
   def edit
+
   end
 
   def update
+    picture_id = session[:picture_id]
+    comment_params = params[:comment]
+    Comment.update(content: comment_params[:content], picture_id: picture_id, user_id: session[:user_id])
+    session[:picture_id] = nil
+    redirect_to Picture.find(picture_id)
+
   end
 
   def destroy
