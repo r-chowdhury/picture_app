@@ -1,5 +1,9 @@
 # README
 
+Note to Ryhan: 
+* Have welcome guest/sign in & sign up links // welcome username and logout button
+* was working on trying to edit comments but needs work... left notes on pages
+
 <!-- This README would normally document whatever steps are necessary to get the
 application up and running.
 
