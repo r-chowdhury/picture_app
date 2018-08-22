@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :redirect_if_not_logged_in, only: [:index]
   def index
     @user = current_user
+    @users =User.all
   end
 
   def show
