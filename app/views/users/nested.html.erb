@@ -1,0 +1,18 @@
+
+
+conceptual:
+
+under model put :
+accepted_nested_attributes_for :tags, :comments , :picture_tags
+
+<%= form_for(@parent) do |f| %>
+	… parent attributes go here …
+	<ul>
+	<%= f.nested_fields_for :terms do |kids_form| %>
+		<li>
+			<%= kids_form.text_field :name %>
+		</li>
+	<% end %>
+	</ul>
+
+	<%= f.submit "Create Parent" %>

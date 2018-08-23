@@ -13,6 +13,8 @@
   <%= form_with model: @picture do |form| %>
   <%=form.text_field :image_url, placeholder: "URL"%>
   <%=form.text_field :title, placeholder: "title" %>
+
+  <%=form.select :tag_id, Tag.all.map { |p| [p.name, p.id]} %>
   <%=form.submit "Add Picture" %>
   <% end %>
 <%end%>
