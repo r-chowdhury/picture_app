@@ -3,12 +3,13 @@ class UsersController < ApplicationController
   before_action :redirect_if_not_logged_in, only: [:index]
   def index
     @user = current_user
-
   end
 
   def show
-
     @logged_in_user = User.find(session[:user_id])
+    @picture = Picture.new
+    #@picture.picture_id = selected_picture.id
+    #session[:picture_id] = selected_picture.id
   end
 
   def new
@@ -45,6 +46,10 @@ class UsersController < ApplicationController
     else
       @user = User.new
     end
+  end
+
+  def selected_user
+    User.find(params[:id])
   end
 
 end

@@ -14,8 +14,13 @@ class PicturesController < ApplicationController
 
   def new
   end
-  def create
 
+  def create
+    picture_id = session[:picture_id]
+    picture_params = params[:picture]
+    picture = Picture.create(image_url: picture_params[:image_url], title: picture_params[:title], user_id: session[:user_id])
+    session[:picture_id] = nil
+    redirect_to picture
   end
 
   def edit

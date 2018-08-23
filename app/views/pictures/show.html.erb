@@ -18,11 +18,13 @@
 </ul>
 </ul>
 <%end%>
+
+
 <h4>Add Comment: </h4>
-<%= form_with model: @comment do |form| %>
-<%=form.text_field :content %>
-<%=form.submit "Add Comment" %>
-<%end%>
+  <%= form_with model: @comment do |form| %>
+  <%=form.text_field :content %>
+  <%=form.submit "Add Comment" %>
+  <% end %>
 <%= button_to 'Edit Comment', edit_comment_path, method: 'get' %>
 
 
