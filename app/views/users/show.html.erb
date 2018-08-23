@@ -7,3 +7,12 @@
     <p><img src='<%=picture.image_url%>'></P>
   <% end %>
 <% end %>
+
+<% if session[:user_id] == @user.id %>
+  <h4>Add Picture: </h4>
+  <%= form_with model: @picture do |form| %>
+  <%=form.text_field :image_url, placeholder: "URL"%>
+  <%=form.text_field :title, placeholder: "title" %>
+  <%=form.submit "Add Picture" %>
+  <% end %>
+<%end%>
