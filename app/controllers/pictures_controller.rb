@@ -19,6 +19,8 @@ class PicturesController < ApplicationController
     picture_id = session[:picture_id]
     picture_params = params[:picture]
     picture = Picture.create(image_url: picture_params[:image_url], title: picture_params[:title], user_id: session[:user_id])
+    picture_tag = PictureTag.create(picture_id: picture.id, tag_id: picture_params[:tag_id])
+    byebug
     session[:picture_id] = nil
     redirect_to picture
   end

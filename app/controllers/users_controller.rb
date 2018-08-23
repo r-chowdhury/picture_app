@@ -35,6 +35,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
+
   private
   def define_users
     @users = User.all
@@ -47,9 +48,4 @@ class UsersController < ApplicationController
       @user = User.new
     end
   end
-
-  def selected_user
-    User.find(params[:id])
-  end
-
 end
