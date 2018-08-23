@@ -43,7 +43,7 @@ class UsersController < ApplicationController
 
   def define_user
     unless(params[:id] == nil)
-      @user = User.find(params[:id])
+      @user = User.find(params[:id]) 
     else
       @user = User.new
     end
