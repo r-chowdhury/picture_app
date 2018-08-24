@@ -16,13 +16,27 @@ class PicturesController < ApplicationController
   end
 
   def create
-    picture_id = session[:picture_id]
-    picture_params = params[:picture]
-    picture = Picture.create(image_url: picture_params[:image_url], title: picture_params[:title], user_id: session[:user_id])
-    picture_tag = PictureTag.create(picture_id: picture.id, tag_id: picture_params[:tag_id])
-    byebug
-    session[:picture_id] = nil
-    redirect_to picture
+
+    #picture_id = session[:picture_id]
+    # picture_params = params[:picture]
+    new_picture = Picture.new(picture_params)
+    new_picture.user = current_user
+    new_picture.save
+    # picture = Picture.create(
+    #   image_url: picture_params[:image_url],
+    #   title: picture_params[:title],
+    #   user_id: session[:user_id],
+    #   tag_ids: picture_params[:tag_ids]
+    # )
+
+
+    # picture_params[:tag_ids].each do |tag_id|
+    #   PictureTag.create(picture_id: picture.id, tag_id: tag_id)
+    # end
+
+
+    #session[:picture_id] = nil
+    redirect_to new_picture
   end
 
   def edit
@@ -30,7 +44,7 @@ class PicturesController < ApplicationController
 
   private
   def picture_params
-    params.require(:picture).permit(:image_url, :title, :user_id)
+    params.require(:picture).permit(:image_url, :title, :user_id, :name, tag_ids:[], tags_attributes: [[:name]])
   end
 
   def selected_picture
