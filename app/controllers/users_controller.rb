@@ -35,6 +35,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
+
   private
   def define_users
     @users = User.all
@@ -42,14 +43,9 @@ class UsersController < ApplicationController
 
   def define_user
     unless(params[:id] == nil)
-      @user = User.find(params[:id])
+      @user = User.find(params[:id]) 
     else
       @user = User.new
     end
   end
-
-  def selected_user
-    User.find(params[:id])
-  end
-
 end

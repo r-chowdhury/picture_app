@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_many :pictures
   has_many :comments, through: :pictures
 
+
+
   def received_comments
     #should return all the comments made
     #on a picture that the user posted

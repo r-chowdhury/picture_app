@@ -1,18 +1,16 @@
 <h1>Picture: <%= @picture.title %></h1>
-
 <% @picture.tags.each do |tag| %>
-
-<%=link_to tag.name, tag_path(tag)%>
+#<%=link_to tag.name, tag_path(tag)%>
 
 <%end%>
-<br>
 
+<br>
 <img src='<%=@picture.image_url%>'/>
 <br>
+
 <% @picture.comments.each do |comment| %>
 <ul>
   <li><%=comment.user.username%></li>
-
 <ul>
   <li>Comment: <%=comment.content%></li>
 </ul>
@@ -25,7 +23,3 @@
   <%=form.text_field :content %>
   <%=form.submit "Add Comment" %>
   <% end %>
-<%= button_to 'Edit Comment', edit_comment_path, method: 'get' %>
-
-
-##note want message saying need to log in to leave message##
