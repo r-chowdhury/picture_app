@@ -36,7 +36,7 @@ class PicturesController < ApplicationController
 
 
     #session[:picture_id] = nil
-    redirect_to picture
+    redirect_to new_picture
   end
 
   def edit
@@ -44,7 +44,7 @@ class PicturesController < ApplicationController
 
   private
   def picture_params
-    params.require(:picture).permit(:image_url, :title, :user_id, :name, tag_ids:[])
+    params.require(:picture).permit(:image_url, :title, :user_id, :name, tag_ids:[], tags_attributes: [[:name]])
   end
 
   def selected_picture
