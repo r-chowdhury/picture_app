@@ -1,8 +1,9 @@
 <h1>Picture: <%= @picture.title %></h1>
 <% @picture.tags.each do |tag| %>
 #<%=link_to tag.name, tag_path(tag)%>
-
 <%end%>
+
+<h3>Poster: <%= link_to @picture.user.username, @picture.user %></h3>
 
 <br>
 <img src='<%=@picture.image_url%>'/>

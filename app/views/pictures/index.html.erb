@@ -1,5 +1,3 @@
-<h1>Pictures#index</h1>
-<p>Find me in app/views/pictures/index.html.erb</p>
 <%@pictures.each do |picture| %>
 <ul><h3><%=link_to picture.title, picture%><h3></ul>
 <p><img src='<%=picture.image_url%>'></P>
